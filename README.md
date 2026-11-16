@@ -1,27 +1,19 @@
-<div align="center">
-  <img src="assets/logo/zpanel-logo.svg" alt="zPanel Logo" width="300">
-  <br><br>
-  <h1>zPanel v2 — Next-Generation Linux Web Hosting & Server Control Panel</h1>
-  <p><strong>High-performance, resource-efficient Linux server control panel powered by zMaxServer & OpenLiteSpeed.</strong></p>
-  <p>
-    <a href="https://www.zepanel.com">Official Website</a> •
-    <a href="https://www.zepanel.com/downloads">Downloads & Packages</a> •
-    <a href="https://www.zepanel.com/features">Features</a> •
-    <a href="https://www.zepanel.com/pricing">Pricing & Licenses</a> •
-    <a href="https://www.zepanel.com/wiki">Documentation</a>
-  </p>
-</div>
+# zPanel v2 — Next-Generation Linux Web Hosting & Server Control Panel
+
+High-performance, resource-efficient Linux server control panel powered by zMaxServer and OpenLiteSpeed.
+
+Official Website: **[https://www.zepanel.com](https://www.zepanel.com)** • Documentation: **[https://www.zepanel.com/wiki](https://www.zepanel.com/wiki)** • Downloads: **[https://www.zepanel.com/downloads](https://www.zepanel.com/downloads)**
 
 ---
 
 ## ⚡ Overview
 
-**zPanel v2** is a modern, enterprise-grade Linux server and web hosting management control panel designed for web hosts, data centers, system administrators, and software developers.
+**zPanel v2** is a modern, enterprise-grade Linux server and web hosting management control panel designed for hosting providers, data centers, system administrators, and software developers.
 
 Engineered with a lightweight Go and C core architecture, zPanel delivers sub-millisecond panel latency and consumes **up to 40% less memory (RAM)** compared to legacy hosting panels, eliminating server resource bloat.
 
 ### Key Highlights
-- **Engine Acceleration:** Native OpenLiteSpeed & zMaxServer event-driven async web server with built-in LSCache and HTTP/3 QUIC support.
+- **Engine Acceleration:** Native OpenLiteSpeed and zMaxServer event-driven async web server with built-in LSCache and HTTP/3 QUIC support.
 - **Isolated Multi-PHP:** Assign independent PHP environments (PHP 7.4 through PHP 8.4) per domain with dedicated PHP-FPM pools.
 - **Enterprise Mail Service:** Postfix & Dovecot backbone integrated with modern Roundcube Webmail, automated SPF, DKIM (2048-bit), and DMARC wizard alignment.
 - **Unified Database Hub:** Fast MariaDB / MySQL management with remote IP whitelist access and one-click import/export.
@@ -29,26 +21,63 @@ Engineered with a lightweight Go and C core architecture, zPanel delivers sub-mi
 
 ---
 
-## 🖥️ Live Panel Interface
+## 📦 Distribution Packages (`PAKET/`)
 
-Explore the live interface and showcase directly on our official website: **[www.zepanel.com](https://www.zepanel.com)**
+This repository contains only official compiled distribution packages inside the [`PAKET/`](PAKET/) directory:
 
+### 1. AlmaLinux / Rocky Linux / RHEL (.rpm)
+Directory: [`PAKET/ALMALINUX/`](PAKET/ALMALINUX/)
+- `zpanel-1.0.09.x86_64.rpm`
+- `zpanel-core-1.0.09.x86_64.rpm`
+- `zpanel-agent-1.0.09.x86_64.rpm`
+- `zpanel-ui-1.0.09.x86_64.rpm`
+
+Installation:
+```bash
+sudo rpm -Uvh zpanel-1.0.09.x86_64.rpm
 ```
-+--------------------------------------------------------------------------------+
-|  ● ● ●  zPanel v2 · Control Console                               [root@zpanel]|
-+--------------------------------------------------------------------------------+
-| [Dashboard]   CPU Usage: [||||||....] 24%    RAM Usage: [||||........] 1.1 GB  |
-| [Domains]     Active VHosts: 128             Web Engine: zMaxServer (HTTP/3)   |
-| [Databases]   MariaDB 10.11: Running         Mail Service: Postfix / Dovecot   |
-| [Security]    Fail2ban: Active (0 bans)      SSL Engine: Let's Encrypt Auto    |
-+--------------------------------------------------------------------------------+
+
+### 2. Debian Linux (.deb)
+Directory: [`PAKET/DEBIAN/`](PAKET/DEBIAN/)
+- `zpanel_1.0.09_amd64.deb`
+- `zpanel-core_1.0.09_amd64.deb`
+- `zpanel-agent_1.0.09_amd64.deb`
+- `zpanel-ui_1.0.09_amd64.deb`
+
+Installation:
+```bash
+sudo dpkg -i zpanel_1.0.09_amd64.deb
+```
+
+### 3. Ubuntu Linux (.deb)
+Directory: [`PAKET/UBUNTU/`](PAKET/UBUNTU/)
+- `zpanel_1.0.09_amd64.deb`
+- `zpanel-core_1.0.09_amd64.deb`
+- `zpanel-agent_1.0.09_amd64.deb`
+- `zpanel-ui_1.0.09_amd64.deb`
+
+Installation:
+```bash
+sudo dpkg -i zpanel_1.0.09_amd64.deb
+```
+
+### 4. Interactive Installer
+Directory: [`PAKET/INSTALLER/`](PAKET/INSTALLER/)
+- `install`
+- `zpanel-installer`
+- `zpanel-uninstaller`
+
+Installation:
+```bash
+chmod +x install
+sudo ./install
 ```
 
 ---
 
 ## 🌐 Supported Linux Distributions
 
-As certified on **[zepanel.com/downloads](https://www.zepanel.com/downloads)**:
+As documented on **[zepanel.com/downloads](https://www.zepanel.com/downloads)**:
 
 | Distribution | Supported Versions | Architecture | Package Format | Status |
 |---|---|---|---|---|
@@ -133,12 +162,6 @@ Official provisioning modules for commercial hosting platforms:
 - [zpanel-vps-pnlcs](https://github.com/zepanel/zpanel-vps-pnlcs) — PNLCS Cloud / Virtualization Module
 - [zpanel-hosting-pnlcs](https://github.com/zepanel/zpanel-hosting-pnlcs) — PNLCS Hosting & Domain Integration
 - [zpanel-license-pnlcs](https://github.com/zepanel/zpanel-license-pnlcs) — PNLCS License Automation Module
-
----
-
-## 📦 Official Binary Packages
-
-Download verified installation packages directly from **[www.zepanel.com/downloads](https://www.zepanel.com/downloads)**.
 
 ---
 
