@@ -1,6 +1,6 @@
 # zPanel v2 — Next-Generation Linux Web Hosting & Server Control Panel
 
-High-performance, resource-efficient Linux server control panel powered by zMaxServer and OpenLiteSpeed.
+High-performance, resource-efficient Linux server control panel natively integrated with **[zMaxServer](https://github.com/zmaxserver/zmaxserver)** and OpenLiteSpeed.
 
 Official Website: **[https://www.zepanel.com](https://www.zepanel.com)** • Documentation: **[https://www.zepanel.com/wiki](https://www.zepanel.com/wiki)** • Downloads: **[https://www.zepanel.com/downloads](https://www.zepanel.com/downloads)**
 
@@ -10,12 +10,12 @@ Official Website: **[https://www.zepanel.com](https://www.zepanel.com)** • Doc
 
 **zPanel v2** is a modern, enterprise-grade Linux server and web hosting management control panel designed for hosting providers, data centers, system administrators, and software developers.
 
-Engineered with a lightweight Go and C core architecture, zPanel delivers sub-millisecond panel latency and consumes **up to 40% less memory (RAM)** compared to legacy hosting panels, eliminating server resource bloat.
+Engineered with an ultra-lightweight Go and C core architecture, zPanel delivers sub-millisecond panel latency and consumes **up to 40% less memory (RAM)** compared to legacy hosting panels, eliminating server resource bloat.
 
 ### Key Highlights
-- **Engine Acceleration:** Native OpenLiteSpeed and zMaxServer event-driven async web server with built-in LSCache and HTTP/3 QUIC support.
-- **Isolated Multi-PHP:** Assign independent PHP environments (PHP 7.4 through PHP 8.4) per domain with dedicated PHP-FPM pools.
-- **Enterprise Mail Service:** Postfix & Dovecot backbone integrated with modern Roundcube Webmail, automated SPF, DKIM (2048-bit), and DMARC wizard alignment.
+- **zMaxServer Native Integration:** Fully integrated with **[zMaxServer](https://github.com/zmaxserver/zmaxserver)**, an event-driven, asynchronous web server engine based on OpenLiteSpeed featuring native HTTP/3 QUIC, built-in LSCache, and high-concurrency request processing.
+- **LiteSpeed SAPI (LSAPI) Multi-PHP:** High-speed PHP execution through native LSAPI and isolated LSPHP worker pools (supporting PHP 7.4 through PHP 8.4) per virtual host.
+- **Enterprise Mail Service:** Robust Postfix & Dovecot backbone integrated with modern Roundcube Webmail, automated SPF, 2048-bit DKIM, and DMARC wizard alignment.
 - **Unified Database Hub:** Fast MariaDB / MySQL management with remote IP whitelist access and one-click import/export.
 - **Bulletproof Security:** Automated Let's Encrypt Wildcard SSL, real-time Fail2ban brute-force shield, and directory chroot isolation.
 
@@ -23,14 +23,14 @@ Engineered with a lightweight Go and C core architecture, zPanel delivers sub-mi
 
 ## 📦 Distribution Packages (`PAKET/`)
 
-This repository contains only official compiled distribution packages inside the [`PAKET/`](PAKET/) directory:
+This repository contains official pre-compiled distribution packages inside the [`PAKET/`](PAKET/) directory:
 
 ### 1. AlmaLinux / Rocky Linux / RHEL (.rpm)
 Directory: [`PAKET/ALMALINUX/`](PAKET/ALMALINUX/)
-- `zpanel-1.0.09.x86_64.rpm`
-- `zpanel-core-1.0.09.x86_64.rpm`
-- `zpanel-agent-1.0.09.x86_64.rpm`
-- `zpanel-ui-1.0.09.x86_64.rpm`
+- `zpanel-1.0.09.x86_64.rpm` (Master Metapackage)
+- `zpanel-core-1.0.09.x86_64.rpm` (Core System Service)
+- `zpanel-agent-1.0.09.x86_64.rpm` (Node & Agent Daemon)
+- `zpanel-ui-1.0.09.x86_64.rpm` (Control Panel Interface)
 
 Installation:
 ```bash
@@ -39,10 +39,10 @@ sudo rpm -Uvh zpanel-1.0.09.x86_64.rpm
 
 ### 2. Debian Linux (.deb)
 Directory: [`PAKET/DEBIAN/`](PAKET/DEBIAN/)
-- `zpanel_1.0.09_amd64.deb`
-- `zpanel-core_1.0.09_amd64.deb`
-- `zpanel-agent_1.0.09_amd64.deb`
-- `zpanel-ui_1.0.09_amd64.deb`
+- `zpanel_1.0.09_amd64.deb` (Master Metapackage)
+- `zpanel-core_1.0.09_amd64.deb` (Core System Service)
+- `zpanel-agent_1.0.09_amd64.deb` (Node & Agent Daemon)
+- `zpanel-ui_1.0.09_amd64.deb` (Control Panel Interface)
 
 Installation:
 ```bash
@@ -51,10 +51,10 @@ sudo dpkg -i zpanel_1.0.09_amd64.deb
 
 ### 3. Ubuntu Linux (.deb)
 Directory: [`PAKET/UBUNTU/`](PAKET/UBUNTU/)
-- `zpanel_1.0.09_amd64.deb`
-- `zpanel-core_1.0.09_amd64.deb`
-- `zpanel-agent_1.0.09_amd64.deb`
-- `zpanel-ui_1.0.09_amd64.deb`
+- `zpanel_1.0.09_amd64.deb` (Master Metapackage)
+- `zpanel-core_1.0.09_amd64.deb` (Core System Service)
+- `zpanel-agent_1.0.09_amd64.deb` (Node & Agent Daemon)
+- `zpanel-ui_1.0.09_amd64.deb` (Control Panel Interface)
 
 Installation:
 ```bash
@@ -63,9 +63,9 @@ sudo dpkg -i zpanel_1.0.09_amd64.deb
 
 ### 4. Interactive Installer
 Directory: [`PAKET/INSTALLER/`](PAKET/INSTALLER/)
-- `install`
-- `zpanel-installer`
-- `zpanel-uninstaller`
+- `install` (Automated dependency installer)
+- `zpanel-installer` (Interactive terminal setup wizard)
+- `zpanel-uninstaller` (Clean removal utility)
 
 Installation:
 ```bash
@@ -110,36 +110,57 @@ zPanel enforces strict port boundaries to guarantee clean separation between man
 - **8026 / TCP (HTTPS):** End-User Client Control Panel (Hosting accounts, DB, Mail, Files)
 - **8036 / TCP (HTTPS):** Reseller & Root Administrator Console
 - **8046 / TCP (HTTPS):** Webmail Interface (Roundcube)
-- **8047 / TLS:** Setup Wizard & Emergency Recovery Console
-- **8056 / TCP (HTTPS):** External REST API Gateway (Provisioning & Billing Automation)
+- **8047 / TLS:** Setup Wizard & Emergency Recovery Console (`zpanel-installer`, internal port 8789)
+- **8056 / TCP (HTTPS):** External REST API Gateway (internal port 8055)
 - **22 / TCP (SSH):** Secure Shell Console
 - **80 / TCP (HTTP):** Web Traffic & ACME HTTP-01 Validation
 - **443 / TCP (HTTPS):** Production TLS Traffic (HTTP/2 & HTTP/3 / QUIC)
 
 ---
 
-## 🛠️ CLI Management Tool (`zpanel-cli`)
+## 🛠️ Command-Line & Service Management
 
-The built-in CLI utility gives system administrators full command-line control:
+zPanel provides dedicated system utilities and systemd daemons for server operations:
+
+### 1. Panel CLI Utility (`zpanel`)
+The core administrative binary located at `/opt/zpanel/bin/zpanel`:
 
 ```bash
-# Check cluster health and active service status
-zpanel-cli status
+# Check and install signed updates from the central repository
+zpanel update
 
-# Issue a Let's Encrypt SSL certificate for a domain
-zpanel-cli ssl --issue -d example.com
+# Renew all Let's Encrypt and TLS certificates across domains
+zpanel ssl renew
 
-# Restart web server and PHP-FPM daemons
-zpanel-cli restart zmaxserver php-fpm
+# Automated WordPress deployment for a specific domain
+zpanel wp install --domain example.com --title "My Site" --admin admin --email admin@example.com
+```
 
-# Trigger full server disaster backup to remote S3
-zpanel-cli backup --full --remote s3
+### 2. Systemd Service Control
+Manage the underlying zPanel daemons directly via systemctl:
 
-# Review firewall status and active banned IPs
-zpanel-cli firewall --status --banned
+```bash
+# Check status of core panel services
+systemctl status zpanel-api zpanel-worker zpanel-agent
 
-# Reset administrator password from terminal
-zpanel-cli user --reset-password admin
+# Restart core API and background worker
+systemctl restart zpanel-api zpanel-worker
+
+# Restart the node agent service
+systemctl restart zpanel-agent
+
+# Restart the emergency maintenance / installer service (port 8047)
+systemctl restart zpanel-installer
+
+# Restart zMaxServer web engine
+systemctl restart zmaxserver
+
+# Probe internal API health endpoint
+curl -s http://127.0.0.1:8055/v1/health
+
+# Inspect real-time service logs
+journalctl -u zpanel-api -n 50 --no-pager
+journalctl -u zpanel-agent -n 50 --no-pager
 ```
 
 ---
@@ -165,9 +186,12 @@ Official provisioning modules for commercial hosting platforms:
 
 ---
 
-## 📄 License & Commercial Terms
+## 📄 License & Terms
+
+This project is licensed under the **[MIT License](LICENSE)**.
 
 - **Official Website:** [https://www.zepanel.com](https://www.zepanel.com)
+- **Web Server Engine:** [https://github.com/zmaxserver/zmaxserver](https://github.com/zmaxserver/zmaxserver)
 - **Documentation:** [https://www.zepanel.com/wiki](https://www.zepanel.com/wiki)
 - **Technical Support:** [destek@zepanel.com](mailto:destek@zepanel.com)
-- **Copyright:** © 2026 zPanel. All rights reserved. Proprietary software.
+- **Copyright:** © 2026 zPanel.
