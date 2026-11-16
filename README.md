@@ -1,289 +1,224 @@
 <div align="center">
-  <img src="assets/logo/zpanel-logo.svg" alt="zPanel Logo" width="280">
+  <img src="assets/logo/zpanel-logo.svg" alt="zPanel Logo" width="300">
   <br><br>
-  <h1>zPanel v2 — Yeni Nesil Linux Web Hosting ve Sunucu Kontrol Paneli</h1>
-  <p><strong>Linux sunucularınızı, web sitelerinizi, e-postalarınızı, veritabanlarınızı ve güvenlik politikalarınızı tek merkezden yönetin.</strong></p>
+  <h1>zPanel v2 — Next-Generation Linux Server & Web Hosting Control Panel</h1>
+  <p><strong>Take full control of your Linux servers, domains, corporate mailboxes, databases, and cybersecurity policies from a single, blazing-fast interface.</strong></p>
   <p>
-    <a href="https://www.zepanel.com">Resmi Web Sitesi</a> •
-    <a href="https://www.zepanel.com/downloads">İndirme Merkezi</a> •
-    <a href="https://www.zepanel.com/product">Ürün Detayı</a> •
-    <a href="https://www.zepanel.com/features">Özellikler</a> •
-    <a href="https://www.zepanel.com/pricing">Lisanslar</a> •
-    <a href="https://www.zepanel.com/wiki">Dokümantasyon</a>
+    <a href="https://www.zepanel.com">Official Website</a> •
+    <a href="https://www.zepanel.com/downloads">Download Center</a> •
+    <a href="https://github.com/zepanel/zepanel/releases">GitHub Releases</a> •
+    <a href="https://www.zepanel.com/features">Features</a> •
+    <a href="https://www.zepanel.com/pricing">Pricing</a> •
+    <a href="https://www.zepanel.com/wiki">Documentation</a>
   </p>
 </div>
 
 ---
 
-## 🚀 zPanel v2 Nedir?
+## ⚡ Overview
 
-**zPanel v2**, modern web hosting şirketleri, veri merkezleri, sistem yöneticileri ve yazılım geliştiriciler için Go ve C tabanlı çekirdekle optimize edilmiş, ultra düşük bellek tüketen, yüksek performanslı ve kurumsal düzeyde bir **Linux Sunucu ve Web Hosting Kontrol Paneli**'dir.
-
-Sunucunuzda Apache, Nginx, PHP-FPM, MySQL/MariaDB, Postfix, Dovecot ve Güvenlik Duvarı yönetimini karmaşık konsol komutlarından kurtararak modern, reaktif ve hızlı bir kullanıcı arayüzü sunar.
+**zPanel v2** is a high-performance, enterprise-grade Linux server and web hosting management control panel built from the ground up with an ultra-lightweight Go and C core architecture. It replaces bloated, resource-heavy legacy panels by consuming up to **40% less memory (RAM)** while providing real-time telemetry, automated SSL, native OpenLiteSpeed/zMaxServer web engine acceleration, and hardened security.
 
 > [!NOTE]
-> Bu depo, **zPanel v2 Resmi Kontrol Paneli**'nin tanıtım dokümantasyonunu, arayüz ekran görüntülerini ve resmi dağıtım paketlerini (Debian, Ubuntu, AlmaLinux/RHEL ve Kurulum Motoru) içerir. zPanel çekirdeği ticari kapalı kaynak bir yazılımdır; açık kaynak kod barındırmaz.
+> This repository serves as the official presentation showcase, documentation hub, and release registry for zPanel v2. The zPanel engine is proprietary commercial software; binary installation packages are distributed via [GitHub Releases](https://github.com/zepanel/zepanel/releases/tag/v1.0.09).
 
 ---
 
-## 🖥️ zPanel v2 Kontrol Paneli Arayüzü & Ekran Görüntüleri
+## 🖥️ Live Interface & Visual Showcase
 
-zPanel v2'nin 26 temel modülünün gerçek panel arayüz ekranları aşağıda sunulmuştur:
+Below are the verified control panel screenshots featured on [www.zepanel.com](https://www.zepanel.com):
 
-### 1. Giriş ve Kimlik Doğrulama Ekranı
-Çift faktörlü koruma (2FA), brute-force saldırı kalkanı ve güvenli oturum açma arayüzü.
-![Giriş Ekranı](screenshots/01_giris_ekrani.png)
+### 1. Unified Dashboard & Real-Time Telemetry
+Monitor system resources (CPU, RAM, NVMe Disk, Network), active system services, and server load in real time.
+![zPanel v2 Dashboard](screenshots/02_dashboard_genel_bakis.png)
 
-### 2. Yönetici ve Müşteri Dashboard (Genel Bakış)
-Sunucu kaynak tüketimi (CPU, RAM, Disk, Ağ), anlık yük, aktif hizmetler ve hızlı erişim widget'ları.
-![Dashboard Genel Bakış](screenshots/02_dashboard_genel_bakis.png)
+### 2. Domain Names & Web Sites Management
+Manage multiple domains, subdomains, DocumentRoot paths, and vHost configurations with instant HTTPS enforcement.
+![Domains and Websites](screenshots/03_alan_adlari_ve_siteler.png)
 
-### 3. Alan Adları ve Web Siteleri Yönetimi
-Çoklu alan adı, alt alan adı (subdomain), takma ad (alias) ve web sitesi yapılandırmaları.
-![Alan Adları ve Siteler](screenshots/03_alan_adlari_ve_siteler.png)
+### 3. Databases (MySQL & MariaDB)
+Create databases, manage user privileges, configure remote IP access, and perform one-click SQL import/export.
+![Database Management](screenshots/05_veritabanlari_sekmesi.png)
 
-### 4. Alan Adı Detaylı Yönetim Paneli
-Her web sitesi için kök dizin, SSL, PHP sürümü, log izleme ve erişim izinleri.
-![Alan Adı Genel Bakış](screenshots/04_alan_adi_genel_bakis.png)
+### 4. Advanced Web File Manager
+Drag-and-drop file uploader, built-in archive extraction (ZIP/TAR/GZ), permission inspector, and syntax-highlighted code editor.
+![File Manager](screenshots/09_dosya_yoneticisi.png)
 
-### 5. Veritabanları (MySQL / MariaDB)
-Veritabanı oluşturma, boyut takibi ve phpMyAdmin entegrasyonu.
-![Veritabanları Sekmesi](screenshots/05_veritabanlari_sekmesi.png)
+### 5. Corporate Mail Accounts
+Custom business mailboxes with automated quota enforcement, mail forwarding, auto-responders, and Roundcube integration.
+![Email Accounts](screenshots/10_eposta_hesaplari.png)
 
-### 6. Veritabanı Kullanıcıları ve Yetkilendirme
-Kullanıcı bazlı detaylı GRANT yetkilendirmesi ve şifre yönetimi.
-![Veritabanı Kullanıcıları](screenshots/06_veritabani_kullanicilari_sekmesi.png)
+### 6. Email Security & DNS Authentication
+Stop outbound and inbound spoofing with automated 2048-bit DKIM, SPF, and DMARC wizard alignment.
+![Email DNS Authentication](screenshots/11_eposta_dns_kimlik_dogrulama.png)
 
-### 7. Veritabanı Uzak Erişim (Remote MySQL)
-Güvenli IP beyaz listeleme ile dış IP'lerden veritabanına doğrudan güvenli bağlantı.
-![Veritabanı Uzak Erişim](screenshots/07_veritabani_uzak_erisim_sekmesi.png)
+### 7. DNS Zone Management
+Instant TTL updates for A, AAAA, CNAME, MX, TXT, SRV, and NS records powered by Bind9.
+![DNS Zone Management](screenshots/12_dns_yonetimi.png)
 
-### 8. Veritabanı İçe ve Dışa Aktarma (SQL Dump / Import)
-Büyük SQL dosyalarını tek tıkla yükleme, yedekten dönme ve gzip dışa aktarma.
-![Veritabanı İçe Dışa Aktar](screenshots/08_veritabani_ice_disa_aktar_sekmesi.png)
+### 8. SSL / TLS Certificates
+Automatic Let's Encrypt Wildcard certificate issuance, auto-renewal every 90 days, and custom certificate deployment.
+![SSL Certificates](screenshots/13_ssl_sertifikalari.png)
 
-### 9. Gelişmiş Web Tabanlı Dosya Yöneticisi
-Sürükle-bırak dosya yükleme, ZIP sıkıştırma/açma, sözdizimi vurgulamalı hızlı kod düzenleyici ve chmod izin yönetimi.
-![Dosya Yöneticisi](screenshots/09_dosya_yoneticisi.png)
+### 9. Multi-PHP Version & Pool Configuration
+Assign independent PHP versions per website (PHP 7.4 through PHP 8.4) with fine-grained OPcache, memory, and upload limits.
+![PHP Configuration](screenshots/14_php_yapilandirmasi.png)
 
-### 10. E-Posta Hesapları Yönetimi
-Kişiselleştirilmiş e-posta hesapları, kota tanımlama, otomatik yanıtlayıcı ve yönlendirme kuralları.
-![E-Posta Hesapları](screenshots/10_eposta_hesaplari.png)
+### 10. Secure FTP & SFTP Management
+Isolated directories, user bandwidth restrictions, and encrypted transport rules.
+![FTP Management](screenshots/15_ftp_yonetimi.png)
 
-### 11. E-Posta Güvenlik & DNS Kimlik Doğrulama
-Spam koruması, SPF, DKIM ve DMARC kayıtlarının tek merkezden otomatik yapılandırılması ve doğrulanması.
-![E-Posta DNS Kimlik Doğrulama](screenshots/11_eposta_dns_kimlik_dogrulama.png)
+### 11. Cron & Scheduled Task Automation
+Manage periodic jobs with predefined templates or custom cron syntax with execution logs.
+![Cron Jobs](screenshots/16_cron_zamanlanmis_gorevler.png)
 
-### 12. DNS Bölge (Zone) Yönetimi
-A, AAAA, CNAME, MX, TXT, SRV, NS kayıtlarının TTL desteğiyle anında yönetimi.
-![DNS Yönetimi](screenshots/12_dns_yonetimi.png)
+### 12. Automated Disaster Recovery & Backups
+Scheduled backups for files, MySQL databases, and mailboxes to local storage or remote S3-compatible cloud buckets.
+![Backup Management](screenshots/17_yedekleme_yonetimi.png)
 
-### 13. SSL / TLS Sertifikaları
-Tek tıkla Let's Encrypt Wildcard ve Otomatik SSL kurulumu, özel ticari SSL yükleme ve HTTP'den HTTPS'e otomatik yönlendirme.
-![SSL Sertifikaları](screenshots/13_ssl_sertifikalari.png)
+### 13. System Health & Core Diagnostic Tools
+Perform vulnerability scans, port listeners check, memory leak detection, and one-click service repair.
+![System Health and Tools](screenshots/18_araclar_ve_sistem_kontrolu.png)
 
-### 14. Çoklu PHP Sürüm & Yapılandırma Yönetimi
-Site bazında PHP 7.4, 8.0, 8.1, 8.2, 8.3 seçimi, `upload_max_filesize`, `memory_limit`, `max_execution_time` ve OPcache ayarları.
-![PHP Yapılandırması](screenshots/14_php_yapilandirmasi.png)
+### 14. Linux Services & Process Control
+Real-time status, reload, and restart management for Nginx, Apache, OpenLiteSpeed, MariaDB, Postfix, Dovecot, and Fail2ban.
+![Linux Services Management](screenshots/19_servisler_yonetimi.png)
 
-### 15. FTP Hesapları ve Dizin İzolasyonu
-İzole edilmiş web dizinleri için FTP hesabı açma, kota ve bağlantı sınırlamaları.
-![FTP Yönetimi](screenshots/15_ftp_yonetimi.png)
+### 15. Firewall & Smart Fail2ban Defense
+Automatic brute-force blacklist, jail monitoring, real-time blocked IP management, and custom port rules.
+![Firewall and Fail2ban](screenshots/21_guvenlik_fail2ban.png)
 
-### 16. Cron (Zamanlanmış Görevler) Yönetimi
-Dakikalık, saatlik, günlük veya özel cron sözdizimi ile komut çalıştırma ve çıktı günlükleri.
-![Cron Görevleri](screenshots/16_cron_zamanlanmis_gorevler.png)
+### 16. Service Plans & Hosting Packages
+Package definitions, client disk/bandwidth quotas, and multi-tenant reseller allocation.
+![Service Plans](screenshots/24_hizmet_planlari.png)
 
-### 17. Otomatik ve Manuel Yedekleme Yönetimi
-Web dosyaları, veritabanları ve e-postalar için zamanlanmış otomatik yedekleme, yerel veya uzak depolama.
-![Yedekleme Yönetimi](screenshots/17_yedekleme_yonetimi.png)
-
-### 18. Araçlar ve Sistem Kontrol Merkezi
-Sunucu sağlık taraması, güvenlik açığı denetimi, port kontrolleri ve tek tıkla onarım araçları.
-![Araçlar ve Sistem Kontrolü](screenshots/18_araclar_ve_sistem_kontrolu.png)
-
-### 19. Sistem Servisleri Yönetimi
-Nginx, Apache, PHP-FPM, MySQL, Postfix, Dovecot ve Cron servislerinin anlık durumu, başlatma, durdurma ve yeniden başlatma.
-![Servisler Yönetimi](screenshots/19_servisler_yonetimi.png)
-
-### 20. Postfix & Mail Kuyruğu Detayı
-Giden/gelen e-posta kuyruğu inceleme, takılan e-postaları temizleme veya yeniden gönderme.
-![Postfix Servis Detayı](screenshots/20_postfix_servis_detayi.png)
-
-### 21. Güvenlik Duvarı & Fail2ban IP Engelleme
-Brute-force saldırganlarını otomatik yakalayan Fail2ban entegrasyonu, banlanan IP listesi ve anında kural ekleme.
-![Güvenlik ve Fail2ban](screenshots/21_guvenlik_fail2ban.png)
-
-### 22. Müşteriler Listesi
-Hosting müşterilerinin hesapları, atanan paketler ve kaynak tüketim limitleri.
-![Müşteriler Listesi](screenshots/22_musteriler_listesi.png)
-
-### 23. Bayi (Reseller) Yönetimi
-Bayilere özel alt kullanıcı açma yetkisi, marka beyaz etiketleme (white-label) ve toplu kaynak tahsisi.
-![Bayiler Resellers](screenshots/23_bayiler_resellers.png)
-
-### 24. Hizmet Planları ve Paket Tanımları
-Disk, trafik, e-posta, veritabanı ve site sayısı limitlerine sahip hazır hosting paketleri oluşturma.
-![Hizmet Planları](screenshots/24_hizmet_planlari.png)
-
-### 25. Abonelikler ve Müşteri Hizmetleri
-Aktif müşteri aboneliklerinin durumu, yenileme tarihleri ve otomatik askıya alma/aktif etme kontrolleri.
-![Abonelikler](screenshots/25_abonelikler.png)
-
-### 26. Sunucu ve Çekirdek Yapılandırma Ayarları
-Panel portları, hostname, SSL politikaları, API erişim anahtarları ve sistem log seviyesi ayarları.
-![Sunucu Ayarları](screenshots/26_sunucu_ayarlari.png)
+### 17. Server Core Configuration
+Panel hostname, HTTPS cipher suites, API tokens, and cluster node synchronization.
+![Server Settings](screenshots/26_sunucu_ayarlari.png)
 
 ---
 
-## 🌐 Desteklenen Linux Dağıtımları
+## 🌐 Supported Linux Distributions
 
-zPanel v2, en yaygın kurumsal ve bulut Linux dağıtımlarında yerel ikili dosyalarla test edilmiş ve optimize edilmiştir:
+As documented on [zepanel.com/downloads](https://www.zepanel.com/downloads), zPanel v2 is natively compiled for:
 
-| Dağıtım | Desteklenen Sürümler | Mimari | Paket Türü | Durum |
+| Operating System | Supported Releases | Architecture | Package Format | Status |
 |---|---|---|---|---|
-| **Ubuntu Linux** | 24.04 LTS (Noble), 22.04 LTS (Jammy), 20.04 LTS (Focal) | x86_64, aarch64 (ARM64) | `.deb` | ✅ Tam Destek |
-| **Debian Linux** | Debian 12 (Bookworm), Debian 11 (Bullseye) | x86_64, aarch64 (ARM64) | `.deb` | ✅ Tam Destek |
-| **AlmaLinux** | AlmaLinux 9.x, AlmaLinux 8.x (RHEL 1:1) | x86_64 | `.rpm` | ✅ RHEL 1:1 Uyumlu |
-| **Rocky Linux** | Rocky Linux 9.x, Rocky Linux 8.x | x86_64 | `.rpm` | ✅ RHEL 1:1 Uyumlu |
+| **Ubuntu Linux** | 24.04 LTS (Noble), 22.04 LTS (Jammy), 20.04 LTS (Focal) | x86_64, aarch64 (ARM64) | `.deb` | ✅ Full Support |
+| **Debian Linux** | Debian 12 (Bookworm), Debian 11 (Bullseye) | x86_64, aarch64 (ARM64) | `.deb` | ✅ Full Support |
+| **AlmaLinux** | AlmaLinux 9.x, AlmaLinux 8.x | x86_64 | `.rpm` | ✅ 1:1 RHEL Compatible |
+| **Rocky Linux** | Rocky Linux 9.x, Rocky Linux 8.x | x86_64 | `.rpm` | ✅ 1:1 RHEL Compatible |
 
 > [!IMPORTANT]
-> **Temiz Kurulum Şartı:** zPanel v2 kurulacak sunucuda daha önceden kurulmuş Apache, Nginx, MySQL veya başka bir web kontrol paneli **bulunmamalıdır**. Kurulumun saf ve temiz bir işletim sistemine (Clean OS) yapılması şarttır.
+> **Clean OS Requirement:** zPanel v2 must be installed on a fresh, clean Linux installation. There should be no prior Apache, Nginx, MariaDB, or third-party control panels installed.
 
 ---
 
-## ⚡ Sistem Gereksinimleri
+## ⚙️ Hardware & System Requirements
 
-| Bileşen | Minimum Gereksinim | Tavsiye Edilen (Üretim Ortamı) |
+| Component | Minimum Specification | Recommended (Production) |
 |---|---|---|
-| **İşlemci (vCPU)** | 1 Çekirdek (1.5 GHz+) | 2+ Çekirdek (2.4 GHz+) |
-| **Bellek (RAM)** | 1 GB RAM (512 MB Swap ile) | 4 GB+ RAM (Yüksek PHP & DB havuzu için) |
-| **Disk Alanı** | 10 GB Boş Disk (SSD) | 40 GB+ NVMe SSD (RAID10 önerilir) |
-| **Ağ & IP** | 1x Statik Genel IPv4 | 1x Statik IPv4 + /64 IPv6 Bloğu (1 Gbps Hat) |
-| **Önceden Kurulu Servis** | Temiz İşletim Sistemi (Saf) | Apache / MySQL kurulu OLMAMALIDIR |
-| **Açık Portlar** | 22 (SSH), 80 (HTTP), 443 (HTTPS) | 8026 (Kullanıcı Paneli), 8036 (Bayi & Root Paneli) |
+| **CPU (vCPU)** | 1 Core (1.5 GHz+) | 2+ Cores (2.4 GHz+) |
+| **Memory (RAM)** | 1 GB RAM (with 512 MB Swap) | 4 GB+ RAM |
+| **Storage** | 10 GB Free SSD | 40 GB+ NVMe SSD (RAID10) |
+| **Network & IP** | 1x Static Public IPv4 | 1x Static IPv4 + /64 IPv6 Subnet |
+| **Open Ports** | 22, 80, 443 | 8026 (Client UI), 8036 (Admin & Reseller UI) |
 
 ---
 
-## 📦 Dağıtım Paketleri (Bu Depoda Mevcut)
+## 📦 Installation Packages & GitHub Releases
 
-Bu depoda `PAKET/` dizini altında doğrudan sunucunuza aktarıp kurabileceğiniz resmi ikili paketler mevcuttur:
+Official pre-built binary packages are available in [GitHub Releases v1.0.09](https://github.com/zepanel/zepanel/releases/tag/v1.0.09):
 
-### 1. AlmaLinux / Rocky Linux / RHEL (.rpm)
-Dizin: [`PAKET/ALMALINUX/`](PAKET/ALMALINUX/)
-- `zpanel-1.0.09.x86_64.rpm` (Ana zPanel Yığın Paketi)
-- `zpanel-core-1.0.09.x86_64.rpm` (Çekirdek Sistem Servisi)
-- `zpanel-agent-1.0.09.x86_64.rpm` (Düğüm & Ajan Servisi)
-- `zpanel-ui-1.0.09.x86_64.rpm` (Panel Arayüz Paketi)
-
-Kurulum:
+### Quick Installation (Interactive Installer)
 ```bash
-sudo rpm -Uvh zpanel-1.0.09.x86_64.rpm
-```
-
-### 2. Debian Linux (.deb)
-Dizin: [`PAKET/DEBIAN/`](PAKET/DEBIAN/)
-- `zpanel_1.0.09_amd64.deb` (Ana zPanel Yığın Paketi)
-- `zpanel-core_1.0.09_amd64.deb` (Çekirdek Sistem Servisi)
-- `zpanel-agent_1.0.09_amd64.deb` (Düğüm & Ajan Servisi)
-- `zpanel-ui_1.0.09_amd64.deb` (Panel Arayüz Paketi)
-
-Kurulum:
-```bash
-sudo dpkg -i zpanel_1.0.09_amd64.deb
-```
-
-### 3. Ubuntu Linux (.deb)
-Dizin: [`PAKET/UBUNTU/`](PAKET/UBUNTU/)
-- `zpanel_1.0.09_amd64.deb` (Ana zPanel Yığın Paketi)
-- `zpanel-core_1.0.09_amd64.deb` (Çekirdek Sistem Servisi)
-- `zpanel-agent_1.0.09_amd64.deb` (Düğüm & Ajan Servisi)
-- `zpanel-ui_1.0.09_amd64.deb` (Panel Arayüz Paketi)
-
-Kurulum:
-```bash
-sudo dpkg -i zpanel_1.0.09_amd64.deb
-```
-
-### 4. Kurulum Motoru İkilileri (Installer)
-Dizin: [`PAKET/INSTALLER/`](PAKET/INSTALLER/)
-- `install` (Otomatik bağımlılık çözümleyici ve kurulum ikilisi)
-- `zpanel-installer` (Etkileşimli kurulum sihirbazı)
-- `zpanel-uninstaller` (Temiz kaldırma aracı)
-
-Çalıştırma:
-```bash
+wget -O install https://github.com/zepanel/zepanel/releases/download/v1.0.09/install
 chmod +x install
 sudo ./install
 ```
 
+### Manual Package Installation
+
+#### Ubuntu & Debian (.deb)
+```bash
+wget https://github.com/zepanel/zepanel/releases/download/v1.0.09/zpanel_1.0.09_amd64.deb
+sudo dpkg -i zpanel_1.0.09_amd64.deb
+```
+
+#### AlmaLinux & Rocky Linux / RHEL (.rpm)
+```bash
+wget https://github.com/zepanel/zepanel/releases/download/v1.0.09/zpanel-1.0.09.x86_64.rpm
+sudo rpm -Uvh zpanel-1.0.09.x86_64.rpm
+```
+
 ---
 
-## 🔒 Resmi Port Mimarisi
+## 🔒 Port Matrix
 
-zPanel, güvenliği ve panel ayrımını sağlamak için mikro-servis mimarisinde standartlaştırılmış portları kullanır:
+zPanel enforces strict port segregation for enhanced security:
 
-- **8026 / TCP (HTTPS):** Müşteri / Son Kullanıcı Kontrol Paneli (Web hosting, veritabanı, e-posta yönetimi)
-- **8036 / TCP (HTTPS):** Bayi (Reseller) & Root Sunucu Yöneticisi Paneli
-- **8046 / TCP (HTTPS):** Webmail Paneli
-- **8047 / TLS:** İlk Kurulum & Acil Bakım Paneli
-- **8056 / TCP (HTTPS):** Güvenli Dış REST API Portu (WHMCS, WISECP, PNLCS otomasyonu)
-- **22 / TCP (SSH):** Güvenli Konsol Erişimi
-- **80 / TCP (HTTP):** Web Yayını & ACME SSL Doğrulama
-- **443 / TCP (HTTPS):** Güvenli Web Yayını (HTTP/2 & TLS 1.3)
+- **8026 / TCP (HTTPS):** End-User Client Control Panel (Websites, Databases, Mail)
+- **8036 / TCP (HTTPS):** Reseller & Root Administrator Console
+- **8046 / TCP (HTTPS):** Roundcube Webmail Portal
+- **8047 / TLS:** First-Boot Setup & Disaster Maintenance Portal
+- **8056 / TCP (HTTPS):** Secure External REST API (Billing & Provisioning Automation)
+- **22 / TCP (SSH):** Secure Shell Console
+- **80 / TCP (HTTP):** Web Traffic & ACME HTTP-01 Challenges
+- **443 / TCP (HTTPS):** Production TLS Traffic (HTTP/2 & HTTP/3 / QUIC)
 
 ---
 
-## 🛠️ zpanel-cli Komut Satırı Yönetimi
+## 🛠️ CLI Management Tool (`zpanel-cli`)
 
-Panel arayüzünün yanı sıra terminal üzerinden de tüm kontrolü sağlayan güçlü `zpanel-cli` aracı:
+Manage your entire cluster from the command line:
 
 ```bash
-# Sistem ve servis durumunu görüntüle
+# Check overall health and service status
 zpanel-cli status
 
-# Yeni alan adına Let's Encrypt SSL tanımla
-zpanel-cli ssl --issue -d ornekalanadi.com
+# Issue Let's Encrypt SSL certificate for a domain
+zpanel-cli ssl --issue -d example.com
 
-# Web sunucusunu ve PHP-FPM havuzlarını yeniden başlat
+# Restart web server and PHP-FPM daemon
 zpanel-cli restart zmaxserver php-fpm
 
-# Tam sunucu yedeğini başlat ve S3 hedefine gönder
+# Trigger full server backup to S3 bucket
 zpanel-cli backup --full --remote s3
 
-# Güvenlik duvarı durumunu ve banlanan IP'leri denetle
+# List firewall status and active banned IPs
 zpanel-cli firewall --status --banned
 
-# Panele root parolasını komut satırından sıfırla
+# Reset administrator password from terminal
 zpanel-cli user --reset-password admin
 ```
 
 ---
 
-## 🔗 Otomasyon ve Faturalandırma Eklentileri
+## 🔌 Provisioning & Billing Modules
 
-zPanel v2'yi mevcut hosting otomasyon sisteminize entegre etmek için geliştirilmiş bağımsız resmi modüller:
+Seamlessly connect zPanel v2 with your billing automation platform:
 
-### WHMCS Modülleri
-- [zpanel-vps-whmcs](https://github.com/zepanel/zpanel-vps-whmcs) — WHMCS VPS / Bulut Sunucu Yönetim Modülü
-- [zpanel-hosting-whmcs](https://github.com/zepanel/zpanel-hosting-whmcs) — WHMCS Web Hosting & Reseller Provizyonlama Modülü
-- [zpanel-license-whmcs](https://github.com/zepanel/zpanel-license-whmcs) — WHMCS zPanel Lisans Satış ve Yetkilendirme Modülü
+### WHMCS Integrations
+- [zpanel-vps-whmcs](https://github.com/zepanel/zpanel-vps-whmcs) — WHMCS VPS / Cloud Server Provisioning
+- [zpanel-hosting-whmcs](https://github.com/zepanel/zpanel-hosting-whmcs) — WHMCS Shared & Reseller Web Hosting Module
+- [zpanel-license-whmcs](https://github.com/zepanel/zpanel-license-whmcs) — WHMCS zPanel License Sales & Provisioning
 
-### WISECP Modülleri
-- [zpanel-vps-wisecp](https://github.com/zepanel/zpanel-vps-wisecp) — WISECP Cloud / VPS Otomasyon Eklentisi
-- [zpanel-hosting-wisecp](https://github.com/zepanel/zpanel-hosting-wisecp) — WISECP Paylaşımlı Hosting Modülü
-- [zpanel-license-wisecp](https://github.com/zepanel/zpanel-license-wisecp) — WISECP zPanel Lisans ve Dağıtım Modülü
+### WISECP Integrations
+- [zpanel-vps-wisecp](https://github.com/zepanel/zpanel-vps-wisecp) — WISECP VPS & Cloud Provisioning
+- [zpanel-hosting-wisecp](https://github.com/zepanel/zpanel-hosting-wisecp) — WISECP Web Hosting Module
+- [zpanel-license-wisecp](https://github.com/zepanel/zpanel-license-wisecp) — WISECP License Distribution Module
 
-### PNLCS Modülleri
-- [zpanel-vps-pnlcs](https://github.com/zepanel/zpanel-vps-pnlcs) — PNLCS VPS / Sanallaştırma Eklentisi
-- [zpanel-hosting-pnlcs](https://github.com/zepanel/zpanel-hosting-pnlcs) — PNLCS Hosting & Alan Adı Entegrasyonu
-- [zpanel-license-pnlcs](https://github.com/zepanel/zpanel-license-pnlcs) — PNLCS Lisans Yönetim Eklentisi
+### PNLCS Integrations
+- [zpanel-vps-pnlcs](https://github.com/zepanel/zpanel-vps-pnlcs) — PNLCS Cloud / VPS Module
+- [zpanel-hosting-pnlcs](https://github.com/zepanel/zpanel-hosting-pnlcs) — PNLCS Web Hosting Module
+- [zpanel-license-pnlcs](https://github.com/zepanel/zpanel-license-pnlcs) — PNLCS License Automation Module
 
 ---
 
-## 📄 Lisans ve İletişim
+## 📄 License & Community
 
-- **Resmi Web Sitesi:** [https://www.zepanel.com](https://www.zepanel.com)
-- **Dokümantasyon & Wiki:** [https://www.zepanel.com/wiki](https://www.zepanel.com/wiki)
-- **Teknik Destek:** [destek@zepanel.com](mailto:destek@zepanel.com)
-- **Telif Hakkı:** © 2026 zPanel. Tüm hakları saklıdır.
+- **Official Website:** [https://www.zepanel.com](https://www.zepanel.com)
+- **Downloads:** [https://www.zepanel.com/downloads](https://www.zepanel.com/downloads)
+- **Knowledgebase & Wiki:** [https://www.zepanel.com/wiki](https://www.zepanel.com/wiki)
+- **Support:** [destek@zepanel.com](mailto:destek@zepanel.com)
+- **Copyright:** © 2026 zPanel. All rights reserved.
